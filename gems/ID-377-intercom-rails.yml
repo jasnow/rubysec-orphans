@@ -1,0 +1,49 @@
+# WITHOUT cve: or ghsa: values, unclear how to name it.
+# Two SNYK advisories - unclear relationship.
+---
+gem: intercom-rails
+cve: ?????????????????????????????????????????????????????????????????
+ghsa: ????????????????????????????????????????????????????????????????
+url: https://security.snyk.io/vuln/SNYK-RUBY-INTERCOMRAILS-20379
+title: XSS vulnerability if a user has dangerous values in setting script
+date: 2013-02-05
+description: |
+  ## Summary
+
+  Fix potential XSS vulnerability if a user has dangerous values in their data.
+
+  intercom-rails is a Rails helper for emitting JavaScript tags
+  that integrate Intercom into an application.
+
+  ## XSS Definition
+
+  A cross-site scripting (XSS) vulnerability existed in how user data
+  was embedded into the generated JavaScript snippet.
+  User-controlled attributes (such as a user's email address or other
+  account fields) were interpolated into JavaScript without proper
+  sanitization.
+  An attacker able to set these fields to crafted values containing
+  HTML or JavaScript could trigger arbitrary script execution in the
+  context of affected applications' users' browsers.
+  This could lead to session theft, defacement, or other client-side
+  attacks depending on application context.
+
+  FYI: cwe: CWE-79
+patched_versions:
+  - (maybe) ">= 0.2.14" ??????????????????????????????????????????????
+related:
+  url:
+    - https://github.com/rubysec/ruby-advisory-db/issues/377
+notes: |
+  - Empty cve: and ghsa: fields.
+    - No NVM after 2013.
+  - Checked GHSA for intercom-rails. (none)
+  - Used SNYK's 6.5 as cvss_3. No cvss_v2 or cvss_v4.
+  - 4/12/2017: https://rubygems.org/gems/intercom-rails/versions/0.3.5
+    - 4/5/2017: https://github.com/intercom/intercom-rails/pull/250 
+      - 2017: https://security.snyk.io/vuln/SNYK-RUBY-INTERCOMRAILS-20380 (dup)
+        - 2025: https://github.com/intercom/intercom-rails/issues/369
+  - 2013: https://rubygems.org/gems/intercom-rails/versions/0.2.14
+    - 2013: https://github.com/intercom/intercom-rails/compare/v0.2.13...v0.2.14
+      - 2013: https://github.com/intercom/intercom-rails/commit/83baa40d21b217caf52db57a2a0616a030ec8f38
+        - 2013/2017: https://security.snyk.io/vuln/SNYK-RUBY-INTERCOMRAILS-20379

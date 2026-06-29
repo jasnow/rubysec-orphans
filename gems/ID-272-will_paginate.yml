@@ -1,0 +1,39 @@
+# WITHOUT cve: or ghsa: values, unclear how to name it.
+# No Advisory found so no "url:" value
+---
+gem: will_paginate
+url: TBD
+title: Security vulnerability when generating pagination URLs in Rails
+date: 2016-02-17
+description: |
+  will_paginate (versions prior to 3.1.1 and 3.0.8) contain a
+  denial-of-service vulnerability triggered by extremely large `page`
+  parameters. When a user supplies a very large page number, the library
+  attempts to calculate offsets and ranges that cause excessive memory
+  allocation and CPU usage.
+
+  This can allow an attacker to degrade application performance or cause
+  resource exhaustion by repeatedly requesting pages with huge numeric values.
+
+  The issue was fixed in versions 3.1.1 and 3.0.8 by clamping page
+  numbers to reasonable bounds and preventing pathological calculations.
+  Additional hardening was released in 3.1.2 and 3.0.9.
+patched_versions:
+  - "~> 3.0.9"
+  - ">= 3.1.2"
+related:
+  url:
+    - https://github.com/mislav/will_paginate/releases/tag/v3.1.2
+    - https://github.com/mislav/will_paginate/releases/tag/v3.1.1
+    - https://github.com/mislav/will_paginate/releases/tag/v3.0.9
+    - https://github.com/mislav/will_paginate/releases/tag/v3.0.8
+    - https://github.com/mislav/will_paginate/commit/ec9b9851901f8b74adc945302c0520320aaa7ead
+    - https://github.com/mislav/will_paginate/commit/ab55687acae11af4274bdf1664481314524d91f6
+   - https://github.com/rubysec/ruby-advisory-db/issues/272
+notes: | 2026
+  - No cve: or ghsa: values.
+    - Found this GHSA: https://github.com/advisories/GHSA-8r6h-7x9g-xmw9
+      - Appears to be different one.
+        - And CVE: https://nvd.nist.gov/vuln/detail/CVE-2013-6459)
+      - Already there: ruby-advisory-db/gems/will_paginate/CVE-2013-6459.yml
+  - No Advisory found so no "url:" value.
